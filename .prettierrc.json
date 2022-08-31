@@ -1,0 +1,7 @@
+{
+  "importOrder": [
+    "^[./]"
+  ],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true
+}

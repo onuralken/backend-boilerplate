@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+exec 1> /dev/tty #TODO: Remove this line when related issue is solved (https://github.com/typicode/husky/issues/968#issuecomment-1176848345)
+
+npx lint-staged
