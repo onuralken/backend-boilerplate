@@ -7,8 +7,8 @@
     "start": "node dist/app/index.js",
     "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/app/index.js\"",
     "prepare": "husky install",
-    "lint": "eslint",
-    "format": "prettier --write",
+    "lint": "eslint --ignore-path .gitignore",
+    "format": "prettier --ignore-path .gitignore --write --ignore-unknown",
     "migrate": "prisma migrate dev"
   },
   "author": "onuralken",
@@ -40,9 +40,9 @@
     "typescript": "^4.8.2"
   },
   "lint-staged": {
-    "**/*.ts": [
-      "npm run format",
-      "npm run lint"
+    "*": [
+      "npm run lint",
+      "npm run format"
     ]
   }
 }
