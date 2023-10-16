@@ -1,0 +1,22 @@
+version: "3.3"
+services:
+  postgresql:
+    container_name: postgresql
+    image: postgres:14.8
+    volumes:
+      - ../postgresql_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+  app:
+    container_name: app
+    ports:
+      - "9001:9001"
+    build: .
+    environment:
+      - PORT=9001
+      - DATABASE_URL=postgresql://postgres:postgres@postgresql:5432/postgres?schema=public
+    depends_on:
+      - postgresql
+    restart: always

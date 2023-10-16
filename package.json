@@ -9,7 +9,8 @@
     "prepare": "husky install",
     "lint": "eslint --ignore-path .gitignore",
     "format": "prettier --ignore-path .gitignore --write --ignore-unknown",
-    "migrate": "prisma migrate dev"
+    "migrate": "prisma migrate dev",
+    "prod": "npx prisma migrate deploy && npx prisma generate && npx tsc && node dist/app/index.js"
   },
   "author": "onuralken",
   "license": "ISC",
